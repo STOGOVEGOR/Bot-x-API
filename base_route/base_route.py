@@ -2,18 +2,10 @@ import json
 
 import requests
 
-# import os
-#
-# from dotenv import load_dotenv
-
 
 class BaseRoute:
     APP_ID = '2750bc42-702e-4cbe-bae5-798f171389e1'
     APP_URL = 'http://core.webstktw.beget.tech/api/v0/apps/{}'.format(APP_ID)
-
-    HEADERS = headers = {
-        'Accept': 'application/json'
-    }
 
     parameters: str = ''
 
