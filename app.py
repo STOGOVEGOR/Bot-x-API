@@ -1,10 +1,8 @@
-from flask import Flask, request, Response
+from flask import Flask, request
 
-from base_route.api_routes import RegisterUserRoute, AuthenticateUserRoute, \
-    DeactivateUserRoute, CheckEmailStatusRoute, \
-    VerifyEmailRoute, ReverifyEmailRoute
+from base_route.api_routes import RegisterUserRoute, AuthenticateUserRoute
 
-from services import make_proxy_request, make_out_response
+from utils.services import make_proxy_request, make_out_response
 
 from constants.https_methods import HTTPMethods
 from constants.uri_dispatch import URIDispatch
