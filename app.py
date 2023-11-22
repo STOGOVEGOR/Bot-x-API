@@ -11,10 +11,8 @@ app = Flask(__name__)
 
 PREFIX = '/api/v0'
 
-MY_PREFIX = 'users'
 
-
-@app.route(f'{PREFIX}/{MY_PREFIX}', methods=["POST"])
+@app.route(f'{PREFIX}/{URIDispatch.REGISTER}', methods=["POST"])
 def register_user():
     data = request.get_json()
     response = make_proxy_request(RegisterUserRoute, data,
@@ -24,7 +22,7 @@ def register_user():
     return out_response
 
 
-@app.route(f'{PREFIX}/users/login', methods=["POST"])
+@app.route(f'{PREFIX}/{URIDispatch.LOGIN}', methods=["POST"])
 def authenticate_user():
     data = request.get_json()
     response = make_proxy_request(AuthenticateUserRoute, data,
