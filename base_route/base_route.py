@@ -1,5 +1,3 @@
-import json
-
 import requests
 
 
@@ -19,7 +17,7 @@ class BaseRoute:
 
     def send(self, uri: str, method: str = 'GET'):
         url = '{}/{}'.format(self.APP_URL, uri)
-        r = requests.request(method, url, data=self.parameters)
+        r = requests.request(method, url, headers={'content-type': 'application/json'}, data=self.parameters)
         self.prepare_response(r)
 
     def get_response(self):
@@ -27,3 +25,10 @@ class BaseRoute:
 
     def prepare_response(self, response: str):
         self.response = response
+
+
+    # TODO: Rename to set_parameters
+    # TODO: Rename to set_response
+    # TODO: Implement a json serializer and deserializer inside the base class
+    # TODO: Header proxy
+    # TODO: Fix Postman for /bots

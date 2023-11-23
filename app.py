@@ -7,6 +7,8 @@ from utils.services import make_proxy_request, make_out_response
 from constants.https_methods import HTTPMethods
 from constants.uri_dispatch import URIDispatch
 
+from base_route.api_routes import BotList
+
 app = Flask(__name__)
 
 PREFIX = '/api/v0'
@@ -32,5 +34,14 @@ def authenticate_user():
     return out_response
 
 
+@app.route(f'{PREFIX}/bots', methods=["GET"])
+def get_bots():
+    response = make_proxy_request(BotList, {},
+                                  HTTPMethods.GET, "bots")
+
+    out_response = make_out_response(response)
+    return out_response
+
+
 if __name__ == '__main__':
-    app.run(port=8000,debug=True)
+    app.run(debug=True)
