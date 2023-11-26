@@ -42,5 +42,5 @@ class BotList(BaseRoute):
                 item["mode_name"] = f"{tmp_list[-1]} context"
 
         response._content = json.dumps(res)
+        response.raw.headers['Content-Length'] = str(len(response._content))
         super().prepare_response(response)
-
