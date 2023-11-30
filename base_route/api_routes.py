@@ -43,4 +43,5 @@ class BotList(BaseRoute):
 
         response._content = json.dumps(res)
         response.raw.headers['Content-Length'] = str(len(response._content))
+        response.raw.headers['Access-Control-Allow-Origin'] = '*'
         super().prepare_response(response)
