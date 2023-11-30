@@ -1,4 +1,5 @@
 from flask import Flask, request
+from flask_cors import CORS
 
 from base_route.api_routes import RegisterUserRoute, AuthenticateUserRoute
 
@@ -10,6 +11,7 @@ from constants.uri_dispatch import URIDispatch
 from base_route.api_routes import BotList
 
 app = Flask(__name__)
+CORS(app)
 
 PREFIX = '/api/v0'
 
